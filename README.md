@@ -97,12 +97,19 @@ env -u QT_QPA_PLATFORMTHEME -u QT_QPA_PLATFORM google-earth-pro falla-san-ramon.
 
 - Una **línea roja** de unos 28 km, de norte a sur, pegada al terreno, justo en el
   borde donde la ciudad de Santiago se topa con la cordillera.
+- Sobre esa línea, unos **triángulos rojos** apuntando hacia la cordillera. No son
+  decoración: es el símbolo cartográfico de falla inversa, y apuntan al bloque que
+  cabalga por encima.
+- Una **banda roja translúcida** de ±1 km alrededor de la línea: el corredor de
+  incertidumbre.
 - **Siete marcadores** con un ícono de advertencia ⚠️, uno por cada comuna que la
   falla atraviesa.
 - Si haces **clic sobre la línea roja**, se abre un globo con la ficha técnica de
-  la falla.
+  la falla. Si haces clic en el nombre del documento, sale la **leyenda completa**.
 - A la izquierda, en el panel **`Lugares`**, aparecerá una carpeta llamada
-  *"Falla de San Ramón"*. Ahí puedes prender y apagar las capas con las casillas.
+  *"Falla de San Ramón"* con **seis subcarpetas numeradas**. Las capas 3, 5 y 6
+  vienen **apagadas** para que el mapa no se vea recargado: márcalas con su casilla
+  para activarlas.
 
 > ⚠️ **¿No ves nada?** Revisa en el panel **`Lugares`** (izquierda) que la casilla
 > de la capa esté **marcada**. Después haz doble clic sobre el nombre de la capa
@@ -131,27 +138,61 @@ una zona densamente urbanizada.
 
 ## 📦 Qué contiene el archivo
 
-`falla-san-ramon.kml` incluye:
+`falla-san-ramon.kml` trae **seis capas**, organizadas en carpetas numeradas dentro
+de Google Earth:
 
-- **Traza de superficie** — línea roja de ~28 km pegada al terreno
-  (`clampToGround`), desde Lo Barnechea por el norte (lat −33,37) hasta Pirque por
-  el sur (lat −33,62), corriendo por el pie del cordón de Ramón en torno a los
-  −70,52 / −70,55 de longitud.
-- **7 marcadores de sector**, uno por comuna atravesada, ubicados *sobre* la traza
-  a la altura de cada comuna.
-- **Ficha técnica** de la falla en la descripción del documento (manteo,
-  profundidad, tasa de deslizamiento, fuente).
-- **Vista inicial inclinada** desde el poniente, orientada para que se aprecie el
-  escarpe contra la cordillera.
+| # | Capa | Encendida | Qué muestra |
+|---|---|:-:|---|
+| 1 | **Traza de la falla** | ✅ | Línea roja de ~28 km pegada al terreno, de Lo Barnechea (lat −33,37) a Pirque (−33,62), con las barbas triangulares de falla inversa apuntando al bloque colgante. |
+| 2 | **Corredor de incertidumbre** | ✅ | Banda de ±1 km. La traza publicada tiene 6 vértices y escala regional: la falla está *en algún lugar* de esta franja, no exactamente sobre la línea. |
+| 3 | **Plano de falla en profundidad** | ⬜ | Proyección en superficie del plano hasta los 24 km, más curvas a 5, 10, 15 y 20 km. |
+| 4 | **Sectores atravesados** | ✅ | Siete marcadores, uno por comuna, ubicados sobre la traza. |
+| 5 | **Comunas atravesadas** | ⬜ | Límites de las 7 comunas, desde OpenStreetMap. |
+| 6 | **Contacto de subducción** | ⬜ | La megafalla frente a la costa, para comparar escalas. |
+
+Además: **ficha técnica y leyenda** en la descripción del documento, y una **vista
+inicial inclinada** desde el poniente para que se aprecie el escarpe contra la
+cordillera.
+
+### Por qué importa la capa 3
+
+La falla no es una línea, es un **plano inclinado**. Mantea entre 37° y 55° hacia
+el este, así que en profundidad se mete por debajo de la cordillera: a 24 km de
+profundidad ya está entre **17 y 32 km al oriente** de donde la ves dibujada en la
+superficie.
+
+Esa franja —no la línea— es la que está encima de la superficie que podría romper.
+Es la diferencia entre *"¿mi casa está sobre la falla?"* (pregunta de ruptura
+superficial, muy acotada) y *"¿cuánto me va a sacudir?"* (pregunta de movimiento
+del suelo, que afecta a toda la cuenca de Santiago).
 
 ---
 
 ## 🔬 Origen de los datos
 
-La geometría **no es una estimación propia**: proviene de la
+La traza **no es una estimación propia**: proviene de la
 [GEM Global Active Faults Database](https://github.com/GEMScienceTools/gem-global-active-faults),
 entrada `San Ramon 01a` del modelo **SARA** (*South America Risk Assessment*),
-id de catálogo `SA_71`.
+id de catálogo `SA_71`. Los límites comunales vienen de
+[OpenStreetMap](https://www.openstreetmap.org/) vía Overpass API.
+
+Las capas 2, 3 y las barbas **se calculan** a partir de los parámetros publicados
+de la falla (manteo, profundidad sismogénica, dirección de manteo), asumiendo un
+plano de manteo constante. Es una **simplificación geométrica**, no un modelo
+estructural: la falla real es lístrica y segmentada.
+
+### Reproducirlo
+
+Todo el archivo se regenera desde cero con:
+
+```bash
+python3 generar_kml.py
+```
+
+El script descarga solo los insumos que le faltan (el catálogo GEM y las comunas
+desde Overpass) y reconstruye el KML. No necesita dependencias externas: solo
+Python 3. Si quieres cambiar el ancho del corredor, el manteo o las profundidades
+de las curvas, están como constantes al inicio del archivo.
 
 ---
 
@@ -167,7 +208,18 @@ id de catálogo `SA_71`.
    de ella.** Para eso se necesita la cartografía de detalle
    (Armijo et al., 2010; Vargas et al., 2014) o un estudio de sitio.
 
-3. **Esto no es un documento oficial** ni sustituye la información de SERNAGEOMIN
+3. **Las capas derivadas son geometría, no geología.** El plano en profundidad y
+   las curvas suponen manteo constante sobre una traza de 6 vértices. Una falla
+   real no es un plano perfecto: cambia de inclinación con la profundidad y está
+   segmentada. Sirven para entender *cómo funciona* la falla, no para calcular
+   nada.
+
+4. **El corredor de ±1 km es una convención**, no un intervalo de confianza
+   publicado. Lo elegí para que el archivo no comunique una precisión que el dato
+   de origen no tiene. El valor real de incertidumbre no está documentado en el
+   catálogo.
+
+5. **Esto no es un documento oficial** ni sustituye la información de SERNAGEOMIN
    ni el criterio de un profesional competente. Es material divulgativo y
    educativo.
 
@@ -189,6 +241,10 @@ id de catálogo `SA_71`.
 **CC BY-SA 4.0.** Obligatorio, no opcional: el dato de origen (GEM Global Active
 Faults) está bajo esa licencia, y por *share-alike* cualquier obra derivada —
 este KML incluido — hereda las mismas condiciones. Ver [LICENSE](LICENSE).
+
+La capa 5 (límites comunales) proviene de **OpenStreetMap**, bajo
+[ODbL](https://opendatacommons.org/licenses/odbl/): © colaboradores de
+OpenStreetMap. Si reutilizas el archivo, mantén ambas atribuciones.
 
 ---
 
