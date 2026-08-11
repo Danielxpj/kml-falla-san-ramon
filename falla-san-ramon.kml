@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>Falla de San Ramon - Santiago, Chile</name>
+<description><![CDATA[
+<h3>Falla de San Ramon</h3>
+<p>Falla inversa activa en el piedemonte andino oriente de Santiago. Levanta el
+frente cordillerano por sobre la cuenca y es capaz de generar sismos corticales
+propios, con ruptura en superficie.</p>
+<table>
+<tr><td><b>Tipo de falla</b></td><td>Inversa (reverse), vergencia oeste</td></tr>
+<tr><td><b>Manteo</b></td><td>~37-55 grados hacia el Este</td></tr>
+<tr><td><b>Profundidad sismogenica</b></td><td>0 - 24 km</td></tr>
+<tr><td><b>Tasa de deslizamiento</b></td><td>~0.4 mm/ano</td></tr>
+<tr><td><b>Largo de la traza</b></td><td>~28 km mapeados</td></tr>
+<tr><td><b>Comunas</b></td><td>Lo Barnechea, Las Condes, La Reina, Penalolen,
+La Florida, Puente Alto, Pirque</td></tr>
+</table>
+<p><b>Fuente de la geometria:</b> GEM Global Active Faults Database, modelo SARA
+(South America Risk Assessment), id de catalogo SA_71. Trazado regional
+simplificado: sirve para ubicar la falla, <b>no</b> para determinar si un predio
+concreto esta sobre ella. Para eso se requiere el mapeo de detalle
+(Armijo et al. 2010; Vargas et al. 2014) o un estudio de sitio.</p>
+]]></description>
+<LookAt>
+  <longitude>-70.62</longitude>
+  <latitude>-33.49</latitude>
+  <altitude>0</altitude>
+  <heading>75</heading>
+  <tilt>65</tilt>
+  <range>48000</range>
+  <altitudeMode>relativeToGround</altitudeMode>
+</LookAt>
+<Style id="trazaFalla">
+  <LineStyle><color>ff2020e6</color><width>5</width></LineStyle>
+</Style>
+<Style id="sector">
+  <IconStyle>
+    <color>ff2020e6</color><scale>0.9</scale>
+    <Icon><href>http://maps.google.com/mapfiles/kml/shapes/caution.png</href></Icon>
+  </IconStyle>
+  <LabelStyle><scale>0.8</scale></LabelStyle>
+</Style>
+<Folder><name>Traza de superficie</name><open>1</open>
+<Placemark>
+<name>Falla de San Ramon (traza)</name>
+<styleUrl>#trazaFalla</styleUrl>
+<description><![CDATA[Falla inversa activa, manteo ~(37.0,40,55) hacia el E. Tasa de deslizamiento ~0.4 mm/ano. Fuente: GEM Global Active Faults / SARA.]]></description>
+<LineString>
+<tessellate>1</tessellate>
+<altitudeMode>clampToGround</altitudeMode>
+<coordinates>
+-70.547588,-33.369161,0
+-70.547168,-33.371179,0
+-70.546747,-33.373198,0
+-70.546327,-33.375217,0
+-70.545907,-33.377236,0
+-70.545486,-33.379255,0
+-70.545066,-33.381274,0
+-70.544646,-33.383293,0
+-70.544225,-33.385312,0
+-70.543805,-33.387331,0
+-70.543385,-33.389350,0
+-70.542965,-33.391368,0
+-70.542544,-33.393387,0
+-70.542124,-33.395406,0
+-70.541704,-33.397425,0
+-70.541283,-33.399444,0
+-70.540863,-33.401463,0
+-70.540443,-33.403482,0
+-70.540022,-33.405501,0
+-70.538734,-33.407543,0
+-70.537445,-33.409585,0
+-70.536157,-33.411628,0
+-70.534868,-33.413670,0
+-70.533580,-33.415712,0
+-70.532291,-33.417754,0
+-70.531002,-33.419797,0
+-70.529714,-33.421839,0
+-70.528425,-33.423881,0
+-70.527137,-33.425924,0
+-70.525848,-33.427966,0
+-70.524560,-33.430008,0
+-70.523271,-33.432051,0
+-70.521982,-33.434093,0
+-70.520694,-33.436135,0
+-70.520604,-33.438158,0
+-70.520515,-33.440180,0
+-70.520425,-33.442203,0
+-70.520336,-33.444226,0
+-70.520246,-33.446248,0
+-70.520157,-33.448271,0
+-70.520068,-33.450294,0
+-70.519978,-33.452316,0
+-70.519889,-33.454339,0
+-70.519799,-33.456361,0
+-70.519710,-33.458384,0
+-70.519620,-33.460407,0
+-70.519531,-33.462429,0
+-70.519441,-33.464452,0
+-70.519352,-33.466475,0
+-70.519262,-33.468497,0
+-70.519173,-33.470520,0
+-70.519083,-33.472542,0
+-70.518994,-33.474565,0
+-70.518904,-33.476588,0
+-70.518815,-33.478610,0
+-70.518726,-33.480633,0
+-70.518636,-33.482656,0
+-70.518547,-33.484678,0
+-70.518457,-33.486701,0
+-70.518368,-33.488724,0
+-70.518278,-33.490746,0
+-70.518189,-33.492769,0
+-70.518099,-33.494791,0
+-70.518010,-33.496814,0
+-70.518566,-33.498846,0
+-70.519122,-33.500877,0
+-70.519679,-33.502909,0
+-70.520235,-33.504940,0
+-70.520791,-33.506972,0
+-70.521347,-33.509004,0
+-70.521903,-33.511035,0
+-70.522460,-33.513067,0
+-70.523016,-33.515098,0
+-70.523572,-33.517130,0
+-70.524128,-33.519161,0
+-70.524685,-33.521193,0
+-70.525241,-33.523225,0
+-70.525797,-33.525256,0
+-70.526353,-33.527288,0
+-70.526909,-33.529319,0
+-70.527091,-33.531365,0
+-70.527272,-33.533411,0
+-70.527454,-33.535456,0
+-70.527635,-33.537502,0
+-70.527816,-33.539548,0
+-70.527998,-33.541593,0
+-70.528179,-33.543639,0
+-70.528361,-33.545685,0
+-70.528542,-33.547730,0
+-70.528724,-33.549776,0
+-70.528905,-33.551822,0
+-70.529086,-33.553867,0
+-70.529268,-33.555913,0
+-70.529449,-33.557959,0
+-70.529631,-33.560004,0
+-70.529812,-33.562050,0
+-70.529993,-33.564096,0
+-70.530175,-33.566142,0
+-70.530356,-33.568187,0
+-70.530538,-33.570233,0
+-70.530719,-33.572279,0
+-70.530900,-33.574324,0
+-70.531082,-33.576370,0
+-70.531263,-33.578416,0
+-70.531445,-33.580461,0
+-70.531626,-33.582507,0
+-70.531808,-33.584553,0
+-70.531989,-33.586598,0
+-70.532170,-33.588644,0
+-70.532352,-33.590690,0
+-70.532533,-33.592735,0
+-70.532715,-33.594781,0
+-70.532896,-33.596827,0
+-70.533077,-33.598872,0
+-70.533259,-33.600918,0
+-70.533440,-33.602964,0
+-70.533622,-33.605009,0
+-70.533803,-33.607055,0
+-70.533985,-33.609101,0
+-70.534166,-33.611146,0
+-70.534347,-33.613192,0
+-70.534529,-33.615238,0
+-70.534710,-33.617283,0
+</coordinates>
+</LineString>
+</Placemark>
+</Folder>
+<Folder><name>Sectores atravesados</name><open>0</open>
+<Placemark>
+<name>Lo Barnechea</name>
+<styleUrl>#sector</styleUrl>
+<description><![CDATA[Extremo norte mapeado de la traza, sector estero Arrayan.<br/><i>Punto ubicado sobre la traza a la altura de la comuna.</i>]]></description>
+<Point><altitudeMode>clampToGround</altitudeMode><coordinates>-70.547168,-33.371179,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Las Condes</name>
+<styleUrl>#sector</styleUrl>
+<description><![CDATA[La falla corre por el pie del cordon de Ramon.<br/><i>Punto ubicado sobre la traza a la altura de la comuna.</i>]]></description>
+<Point><altitudeMode>clampToGround</altitudeMode><coordinates>-70.537445,-33.409585,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>La Reina</name>
+<styleUrl>#sector</styleUrl>
+<description><![CDATA[Sector Quebrada de Ramon / Parque Natural Aguas de Ramon.<br/><i>Punto ubicado sobre la traza a la altura de la comuna.</i>]]></description>
+<Point><altitudeMode>clampToGround</altitudeMode><coordinates>-70.519978,-33.452316,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Penalolen</name>
+<styleUrl>#sector</styleUrl>
+<description><![CDATA[Sector Quebrada de Macul, uno de los tramos mejor estudiados.<br/><i>Punto ubicado sobre la traza a la altura de la comuna.</i>]]></description>
+<Point><altitudeMode>clampToGround</altitudeMode><coordinates>-70.518010,-33.496814,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>La Florida</name>
+<styleUrl>#sector</styleUrl>
+<description><![CDATA[Piedemonte urbanizado sobre la traza.<br/><i>Punto ubicado sobre la traza a la altura de la comuna.</i>]]></description>
+<Point><altitudeMode>clampToGround</altitudeMode><coordinates>-70.527454,-33.535456,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Puente Alto</name>
+<styleUrl>#sector</styleUrl>
+<description><![CDATA[Tramo sur, hacia el valle del Maipo.<br/><i>Punto ubicado sobre la traza a la altura de la comuna.</i>]]></description>
+<Point><altitudeMode>clampToGround</altitudeMode><coordinates>-70.531445,-33.580461,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Pirque</name>
+<styleUrl>#sector</styleUrl>
+<description><![CDATA[Extremo sur mapeado; evidencias confirmadas por la U. de Chile.<br/><i>Punto ubicado sobre la traza a la altura de la comuna.</i>]]></description>
+<Point><altitudeMode>clampToGround</altitudeMode><coordinates>-70.534529,-33.615238,0</coordinates></Point>
+</Placemark>
+</Folder>
+</Document></kml>
